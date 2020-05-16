@@ -1,0 +1,42 @@
+{
+  "name": "COVID19Tracking",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/geolocation": "^2.0.2",
+    "@react-native-firebase/app": "^7.0.1",
+    "@react-native-firebase/firestore": "^7.0.1",
+    "geofire": "^5.0.1",
+    "geofirestore": "^3.4.3",
+    "geolib": "^3.2.1",
+    "react": "16.11.0",
+    "react-native": "0.62.2",
+    "react-native-firebase": "^5.6.0",
+    "react-native-geolocation-service": "^4.0.1",
+    "react-native-gesture-handler": "^1.6.1",
+    "react-native-maps": "0.27.1",
+    "react-native-permissions": "^2.1.4",
+    "react-native-router-flux": "^4.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.5.1",
+    "jest": "^24.9.0",
+    "jetifier": "^1.6.5",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "react-test-renderer": "16.11.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
