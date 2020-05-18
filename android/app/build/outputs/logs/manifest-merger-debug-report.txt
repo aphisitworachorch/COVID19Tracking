@@ -20,6 +20,7 @@ MERGED from [com.facebook.react:react-native:0.62.2] C:\Users\Adminstrator\.grad
 MERGED from [com.google.firebase:firebase-core:17.2.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\b6e4cedae0e9a84481c7f76df6f53158\firebase-core-17.2.1\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-analytics:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\9430e283235ff7db28f66f8a46649560\firebase-analytics-17.4.1\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:15:1-38:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\a4f20889c06ef3bed7d55cf6852e5989\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\390f9a5474fcc7bcc9f7e4e8e8d96ab5\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\a1d64627529d8d421c0b27e7fdd4a3e1\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -123,6 +124,8 @@ MERGED from [:react-native-maps] C:\Users\Adminstrator\Documents\COVID-19\COVID1
 MERGED from [:react-native-maps] C:\Users\Adminstrator\Documents\COVID-19\COVID19Tracking\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-67
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:14:5-67
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:14:5-67
+MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:26:5-67
 MERGED from [com.google.android.gms:play-services-measurement:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\d55fd39f413f2193532ca39373554e93\play-services-measurement-17.4.1\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\d55fd39f413f2193532ca39373554e93\play-services-measurement-17.4.1\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\a51806d0e59ff9433870568f30944c6a\play-services-measurement-api-17.4.1\AndroidManifest.xml:22:5-67
@@ -167,6 +170,8 @@ MERGED from [com.google.firebase:firebase-analytics:17.4.1] C:\Users\Adminstrato
 MERGED from [com.google.firebase:firebase-analytics:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\9430e283235ff7db28f66f8a46649560\firebase-analytics-17.4.1\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:16:5-24:19
+MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:28:5-36:19
 MERGED from [com.facebook.soloader:soloader:0.8.2] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\975f8c03d68f11783cf6231ebd67bc88\soloader-0.8.2\AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.8.2] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\975f8c03d68f11783cf6231ebd67bc88\soloader-0.8.2\AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.gms:play-services-measurement:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\d55fd39f413f2193532ca39373554e93\play-services-measurement-17.4.1\AndroidManifest.xml:28:5-44:19
@@ -307,6 +312,8 @@ MERGED from [com.google.firebase:firebase-analytics:17.4.1] C:\Users\Adminstrato
 MERGED from [com.google.firebase:firebase-analytics:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\9430e283235ff7db28f66f8a46649560\firebase-analytics-17.4.1\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\a4f20889c06ef3bed7d55cf6852e5989\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\a4f20889c06ef3bed7d55cf6852e5989\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\390f9a5474fcc7bcc9f7e4e8e8d96ab5\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
@@ -485,6 +492,8 @@ MERGED from [:react-native-geolocation-service] C:\Users\Adminstrator\Documents\
 MERGED from [:react-native-geolocation-service] C:\Users\Adminstrator\Documents\COVID-19\COVID19Tracking\node_modules\react-native-geolocation-service\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-79
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:13:5-79
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:25:5-79
+MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:25:5-79
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\9f84cd8d42b9a423f27a7dcbf0202a0f\grpc-android-1.21.0\AndroidManifest.xml:11:5-79
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\9f84cd8d42b9a423f27a7dcbf0202a0f\grpc-android-1.21.0\AndroidManifest.xml:11:5-79
 MERGED from [com.google.android.gms:play-services-measurement:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\d55fd39f413f2193532ca39373554e93\play-services-measurement-17.4.1\AndroidManifest.xml:24:5-79
@@ -507,6 +516,8 @@ service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [:react-native-firebase] C:\Users\Adminstrator\Documents\COVID-19\COVID19Tracking\node_modules\react-native-firebase\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-20:19
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:17:9-23:19
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:17:9-23:19
+MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:29:9-35:19
 MERGED from [com.google.android.gms:play-services-measurement-api:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\a51806d0e59ff9433870568f30944c6a\play-services-measurement-api-17.4.1\AndroidManifest.xml:27:9-33:19
 MERGED from [com.google.android.gms:play-services-measurement-api:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\a51806d0e59ff9433870568f30944c6a\play-services-measurement-api-17.4.1\AndroidManifest.xml:27:9-33:19
 MERGED from [com.google.firebase:firebase-iid:20.1.5] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\0e74e9fd5fc5b42223e01e8c833de65c\firebase-iid-20.1.5\AndroidManifest.xml:29:9-35:19
@@ -535,6 +546,12 @@ ADDED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator
 		ADDED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:22:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\6d907bd81b5eca103a6d64eeb9057e4a\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:21:17-111
+meta-data#com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar
+ADDED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:32:13-34:85
+	android:value
+		ADDED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:34:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-database:19.3.0] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\ad1243eb00ea4ba83a91eee1a948761d\firebase-database-19.3.0\AndroidManifest.xml:33:17-109
 uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
 ADDED from [com.google.android.gms:play-services-measurement:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\d55fd39f413f2193532ca39373554e93\play-services-measurement-17.4.1\AndroidManifest.xml:26:5-110
 MERGED from [com.google.android.gms:play-services-measurement-impl:17.4.1] C:\Users\Adminstrator\.gradle\caches\transforms-2\files-2.1\d4b5f87c04dd5cf51117419c96640aab\play-services-measurement-impl-17.4.1\AndroidManifest.xml:26:5-110

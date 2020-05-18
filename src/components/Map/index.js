@@ -79,8 +79,16 @@ export default class Map extends React.Component {
           .collection('Tracking')
           .add({
             lat: geoDat.lat,
-            long: geoDat.lng,
+            long:geoDat.lng,
             date: firebase.firestore.FieldValue.serverTimestamp()
+          })
+          firebase.database().ref(`/users/001`)
+          .update({
+            result: {
+              name:'Somchai',
+              lat: geoDat.lat,
+              long:geoDat.lng, 
+            }
           })
       },
       error => {
