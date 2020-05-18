@@ -82,8 +82,8 @@ export default class Map extends React.Component {
             long:geoDat.lng,
             date: firebase.firestore.FieldValue.serverTimestamp()
           })
-          firebase.database().ref(`/users/001`)
-          .update({
+        firebase.database().ref(`/users/001`)
+          .set({
             result: {
               name:'Somchai',
               lat: geoDat.lat,
