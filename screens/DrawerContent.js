@@ -32,26 +32,8 @@ export function DrawerContent(props) {
                 <View style={styles.drawerContent}>
                     <View style={styles.userInfoSection}>
                         <View style={{flexDirection:'row',marginTop: 15}}>
-                            <Avatar.Image 
-                                source={{
-                                    uri: 'https://api.adorable.io/avatars/50/abott@adorable.png'
-                                }}
-                                size={50}
-                            />
                             <View style={{marginLeft:15, flexDirection:'column'}}>
-                                <Title style={styles.title}>John Doe</Title>
-                                <Caption style={styles.caption}>@j_doe</Caption>
-                            </View>
-                        </View>
-
-                        <View style={styles.row}>
-                            <View style={styles.section}>
-                                <Paragraph style={[styles.paragraph, styles.caption]}>80</Paragraph>
-                                <Caption style={styles.caption}>Following</Caption>
-                            </View>
-                            <View style={styles.section}>
-                                <Paragraph style={[styles.paragraph, styles.caption]}>100</Paragraph>
-                                <Caption style={styles.caption}>Followers</Caption>
+                                <Title style={styles.title}>Test</Title>
                             </View>
                         </View>
                     </View>
@@ -65,7 +47,7 @@ export function DrawerContent(props) {
                                 size={size}
                                 />
                             )}
-                            label="Home"
+                            label="หน้าแรก"
                             onPress={() => {props.navigation.navigate('Home')}}
                         />
                         <DrawerItem 
@@ -76,7 +58,7 @@ export function DrawerContent(props) {
                                 size={size}
                                 />
                             )}
-                            label="Profile"
+                            label="โปรไฟล์"
                             onPress={() => {props.navigation.navigate('Profile')}}
                         />
                         <DrawerItem 
@@ -87,7 +69,7 @@ export function DrawerContent(props) {
                                 size={size}
                                 />
                             )}
-                            label="Bookmarks"
+                            label="ทดสอบระบบ"
                             onPress={() => {props.navigation.navigate('BookmarkScreen')}}
                         />
                         <DrawerItem 
@@ -98,7 +80,7 @@ export function DrawerContent(props) {
                                 size={size}
                                 />
                             )}
-                            label="Settings"
+                            label="ตั้งค่า"
                             onPress={() => {props.navigation.navigate('SettingScreen')}}
                         />
                         <DrawerItem 
@@ -109,14 +91,14 @@ export function DrawerContent(props) {
                                 size={size}
                                 />
                             )}
-                            label="Support"
+                            label="แบบประเมิน"
                             onPress={() => {props.navigation.navigate('SupportScreen')}}
                         />
                     </Drawer.Section>
-                    <Drawer.Section title="Preferences">
+                    <Drawer.Section title="ปรับแต่ง">
                         <TouchableRipple onPress={() => {toggleTheme()}}>
                             <View style={styles.preference}>
-                                <Text>Dark Theme</Text>
+                                <Text>ธีมมืด</Text>
                                 <View pointerEvents="none">
                                     <Switch value={paperTheme.dark}/>
                                 </View>
@@ -134,7 +116,7 @@ export function DrawerContent(props) {
                         size={size}
                         />
                     )}
-                    label="Sign Out"
+                    label="ออกจากระบบ"
                     onPress={() => {signOut()}}
                 />
             </Drawer.Section>

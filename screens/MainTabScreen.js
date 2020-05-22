@@ -6,13 +6,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from './HomeScreen';
-import DetailsScreen from './DetailsScreen';
-import ExploreScreen from './ExploreScreen';
+import MapScreen from './MapScreen';
+import ReportScreen from './ReportScreen';
 import ProfileScreen from './ProfileScreen';
 
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
-
+const ReportStack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
 const MainTabScreen = () => (
@@ -24,21 +24,32 @@ const MainTabScreen = () => (
         name="Home"
         component={HomeStackScreen}
         options={{
-          tabBarLabel: 'Home',
-          tabBarColor: '#009387',
+          tabBarLabel: 'หน้าหลัก',
+          tabBarColor: '#51DCA8',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-home" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
-        name="Notifications"
-        component={DetailsStackScreen}
+        name="Map"
+        component={MapStackScreen}
         options={{
-          tabBarLabel: 'Updates',
-          tabBarColor: '#1f65ff',
+          tabBarLabel: 'แผนที่',
+          tabBarColor: '#51DCA8',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-notifications" color={color} size={26} />
+            <Icon name="ios-map" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Report"
+        component={ReportScreen}
+        options={{
+          tabBarLabel: 'รายงาน',
+          tabBarColor: '#51DCA8',
+          tabBarIcon: ({ color }) => (
+            <Icon name="md-analytics" color={color} size={26} />
           ),
         }}
       />
@@ -46,21 +57,10 @@ const MainTabScreen = () => (
         name="Profile"
         component={ProfileScreen}
         options={{
-          tabBarLabel: 'Profile',
-          tabBarColor: '#694fad',
+          tabBarLabel: 'โปรไฟล์',
+          tabBarColor: '#51DCA8',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-person" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Explore"
-        component={ExploreScreen}
-        options={{
-          tabBarLabel: 'Explore',
-          tabBarColor: '#d02860',
-          tabBarIcon: ({ color }) => (
-            <Icon name="ios-aperture" color={color} size={26} />
           ),
         }}
       />
@@ -72,7 +72,7 @@ export default MainTabScreen;
 const HomeStackScreen = ({navigation}) => (
 <HomeStack.Navigator screenOptions={{
         headerStyle: {
-        backgroundColor: '#009387',
+        backgroundColor: '#51DCA8',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -80,29 +80,47 @@ const HomeStackScreen = ({navigation}) => (
         }
     }}>
         <HomeStack.Screen name="Home" component={HomeScreen} options={{
-        title:'Overview',
+        title:'หน้าหลัก',
         headerLeft: () => (
-            <Icon.Button name="ios-menu" size={25} backgroundColor="#009387" onPress={() => navigation.openDrawer()}></Icon.Button>
+            <Icon.Button name="ios-menu" size={25} backgroundColor="#51DCA8" onPress={() => navigation.openDrawer()}></Icon.Button>
         )
         }} />
 </HomeStack.Navigator>
 );
 
-const DetailsStackScreen = ({navigation}) => (
+const ReportStackScreen = ({navigation}) => (
+  <ReportStack.Navigator screenOptions={{
+          headerStyle: {
+          backgroundColor: '#51DCA8',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+          fontWeight: 'bold'
+          }
+      }}>>
+          <ReportStack.Screen name="รายงาน" component={ReportScreen} options={{
+          headerLeft: () => (
+              <Icon.Button name="ios-menu" size={25} backgroundColor="#51DCA8" onPress={() => navigation.openDrawer()}></Icon.Button>
+          )
+          }} />
+  </ReportStack.Navigator>
+  );
+
+const MapStackScreen = ({navigation}) => (
 <DetailsStack.Navigator screenOptions={{
         headerStyle: {
-        backgroundColor: '#1f65ff',
+        backgroundColor: '#51DCA8',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
         fontWeight: 'bold'
         }
     }}>
-        <DetailsStack.Screen name="Details" component={DetailsScreen} options={{
+        <DetailsStack.Screen name="แผนที่" component={MapScreen} options={{
         headerLeft: () => (
-            <Icon.Button name="ios-menu" size={25} backgroundColor="#1f65ff" onPress={() => navigation.openDrawer()}></Icon.Button>
+            <Icon.Button name="ios-menu" size={25} backgroundColor="#51DCA8" onPress={() => navigation.openDrawer()}></Icon.Button>
         )
         }} />
 </DetailsStack.Navigator>
 );
-  
+

@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet, StatusBar } from 'react-native';
 import { useTheme } from '@react-navigation/native';
-import Map from '../components/Map';
 const HomeScreen = ({navigation}) => {
 
   const { colors } = useTheme();
@@ -9,9 +8,9 @@ const HomeScreen = ({navigation}) => {
   const theme = useTheme();
   
     return (
-      <View style={{flex: 1}}>
-      <Map /> 
-      </View>
+      <View style={styles.container}>
+      <Text>Construction</Text>
+    </View>
     );
 };
 
