@@ -4,7 +4,7 @@
     <string name="firebase_database_url" translatable="false">https://covid19detector-e590e.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">380806971238</string>
     <string name="google_api_key" translatable="false">AIzaSyCsPPx8VSWnXYHSEDh1M087M0Bvw9tmRl8</string>
-    <string name="google_app_id" translatable="false">1:380806971238:android:8c4d57a9d9404c4f7c92a7</string>
+    <string name="google_app_id" translatable="false">1:380806971238:android:7626d149ca4c9b937c92a7</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCsPPx8VSWnXYHSEDh1M087M0Bvw9tmRl8</string>
     <string name="google_storage_bucket" translatable="false">covid19detector-e590e.appspot.com</string>
     <string name="project_id" translatable="false">covid19detector-e590e</string>

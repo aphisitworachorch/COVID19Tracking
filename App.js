@@ -1,139 +1,186 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Dimensions,
-} from 'react-native';
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart
-} from "react-native-chart-kit"
-import Icon from 'react-native-vector-icons/Ionicons';
-import {createAppContainer} from 'react-navigation';
-import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
-import Map from './src/components/Map';
-import Report from './src/components/Report';
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>แบบประเมิน</Text>
-      </View>
-    )
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow
+ */
+
+import React, { useEffect } from 'react';
+import { View, ActivityIndicator } from 'react-native';
+import { 
+  NavigationContainer, 
+  DefaultTheme as NavigationDefaultTheme,
+  DarkTheme as NavigationDarkTheme
+} from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+import { 
+  Provider as PaperProvider, 
+  DefaultTheme as PaperDefaultTheme,
+  DarkTheme as PaperDarkTheme 
+} from 'react-native-paper';
+
+import { DrawerContent } from './screens/DrawerContent';
+
+import MainTabScreen from './screens/MainTabScreen';
+import SupportScreen from './screens/SupportScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import BookmarkScreen from './screens/BookmarkScreen';
+
+import { AuthContext } from './components/context';
+
+import RootStackScreen from './screens/RootStackScreen';
+
+import AsyncStorage from '@react-native-community/async-storage';
+
+const Drawer = createDrawerNavigator();
+
+const App = () => {
+  // const [isLoading, setIsLoading] = React.useState(true);
+  // const [userToken, setUserToken] = React.useState(null); 
+
+  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+
+  const initialLoginState = {
+    isLoading: true,
+    userName: null,
+    userToken: null,
+  };
+
+  const CustomDefaultTheme = {
+    ...NavigationDefaultTheme,
+    ...PaperDefaultTheme,
+    colors: {
+      ...NavigationDefaultTheme.colors,
+      ...PaperDefaultTheme.colors,
+      background: '#ffffff',
+      text: '#333333'
+    }
   }
+  
+  const CustomDarkTheme = {
+    ...NavigationDarkTheme,
+    ...PaperDarkTheme,
+    colors: {
+      ...NavigationDarkTheme.colors,
+      ...PaperDarkTheme.colors,
+      background: '#333333',
+      text: '#ffffff'
+    }
+  }
+
+  const theme = isDarkTheme ? CustomDarkTheme : CustomDefaultTheme;
+
+  const loginReducer = (prevState, action) => {
+    switch( action.type ) {
+      case 'RETRIEVE_TOKEN': 
+        return {
+          ...prevState,
+          userToken: action.token,
+          isLoading: false,
+        };
+      case 'LOGIN': 
+        return {
+          ...prevState,
+          userName: action.id,
+          userToken: action.token,
+          isLoading: false,
+        };
+      case 'LOGOUT': 
+        return {
+          ...prevState,
+          userName: null,
+          userToken: null,
+          isLoading: false,
+        };
+      case 'REGISTER': 
+        return {
+          ...prevState,
+          userName: action.id,
+          userToken: action.token,
+          isLoading: false,
+        };
+    }
+  };
+
+  const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
+
+  const authContext = React.useMemo(() => ({
+    signIn: async(foundUser) => {
+      // setUserToken('fgkj');
+      // setIsLoading(false);
+      const userToken = String(foundUser[0].userToken);
+      const userName = foundUser[0].username;
+      
+      try {
+        await AsyncStorage.setItem('userToken', userToken);
+      } catch(e) {
+        console.log(e);
+      }
+      // console.log('user token: ', userToken);
+      dispatch({ type: 'LOGIN', id: userName, token: userToken });
+    },
+    signOut: async() => {
+      // setUserToken(null);
+      // setIsLoading(false);
+      try {
+        await AsyncStorage.removeItem('userToken');
+      } catch(e) {
+        console.log(e);
+      }
+      dispatch({ type: 'LOGOUT' });
+    },
+    signUp: () => {
+      // setUserToken('fgkj');
+      // setIsLoading(false);
+    },
+    toggleTheme: () => {
+      setIsDarkTheme( isDarkTheme => !isDarkTheme );
+    }
+  }), []);
+
+  useEffect(() => {
+    setTimeout(async() => {
+      // setIsLoading(false);
+      let userToken;
+      userToken = null;
+      try {
+        userToken = await AsyncStorage.getItem('userToken');
+      } catch(e) {
+        console.log(e);
+      }
+      // console.log('user token: ', userToken);
+      dispatch({ type: 'RETRIEVE_TOKEN', token: userToken });
+    }, 1000);
+  }, []);
+
+  if( loginState.isLoading ) {
+    return(
+      <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+        <ActivityIndicator size="large"/>
+      </View>
+    );
+  }
+  return (
+    <PaperProvider theme={theme}>
+    <AuthContext.Provider value={authContext}>
+    <NavigationContainer theme={theme}>
+      { loginState.userToken !== null ? (
+        <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+          <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+          <Drawer.Screen name="SupportScreen" component={SupportScreen} />
+          <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+          <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />
+        </Drawer.Navigator>
+      )
+    :
+      <RootStackScreen/>
+    }
+    </NavigationContainer>
+    </AuthContext.Provider>
+    </PaperProvider>
+  );
 }
 
-class MapScreen extends React.Component {
-  render() {
-    return (
-      <View style={{flex: 1}}>
-      <Map /> 
-      </View>
-    )
-  }
-}
-
-class ReportScreen extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-      <Report />   
-      </View>
-    )
-  }
-}
-
-class ProfileScreen extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Profile</Text>
-      </View>
-    )
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
-
-const TabNavigator = createMaterialBottomTabNavigator(
-  {
-    Home: {
-      screen: HomeScreen,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
-          <View>
-            <Icon style={[{color: tintColor}]} size={25} name={'ios-home'} />
-          </View>
-        ),
-      }
-    },
-    Map: {
-      screen: MapScreen,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
-          <View>
-            <Icon style={[{color: tintColor}]} size={25} name={'ios-map'} />
-          </View>
-        ),
-        activeColor: '#ffffff',
-        inactiveColor: '#f2f2f2',
-        barStyle: { backgroundColor: '#51DCA8' },
-      }
-    },
-    Report: {
-      screen: ReportScreen,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
-          <View>
-            <Icon style={[{color: tintColor}]} size={25} name={'md-analytics'} />
-          </View>
-        ),
-        activeColor: '#ffffff',
-        inactiveColor: '#f2f2f2',
-        barStyle: { backgroundColor: '#51DCA8' }
-      }
-    },
-    Profile: {
-      screen: ProfileScreen,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
-          <View>
-            <Icon style={[{color: tintColor}]} size={25} name={'ios-people'} />
-          </View>
-        ),
-        activeColor: '#ffffff',
-        inactiveColor: '#f2f2f2',
-        barStyle: { backgroundColor: '#51DCA8' },
-      }
-    },
-  },
-  {
-    initialRouteName: 'Home',
-    activeColor: '#ffffff',
-    inactiveColor: '#f2f2f2',
-    barStyle: { backgroundColor: '#51DCA8' },
-  }
-);
-
-export default createAppContainer(TabNavigator)
+export default App;
