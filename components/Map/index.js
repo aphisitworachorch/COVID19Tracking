@@ -83,7 +83,7 @@ export default class Map extends React.Component {
         		var addressComponent = json.results[0].address_components[0];
 			  console.log(addressComponent);
 		    })
-		    .catch(error => console.warn(error))*/
+        */
         firebase.firestore()
           .collection('Tracking')
           .add({
