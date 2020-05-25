@@ -11,8 +11,7 @@ import ReportScreen from './ReportScreen';
 import ProfileScreen from './ProfileScreen';
 
 const HomeStack = createStackNavigator();
-const DetailsStack = createStackNavigator();
-const ReportStack = createStackNavigator();
+const DetailsStack = createStackNavigator();;
 const Tab = createMaterialBottomTabNavigator();
 
 const MainTabScreen = () => (
@@ -33,7 +32,7 @@ const MainTabScreen = () => (
       />
       <Tab.Screen
         name="Map"
-        component={MapStackScreen}
+        component={MapScreen}
         options={{
           tabBarLabel: 'แผนที่',
           tabBarColor: '#51DCA8',
@@ -44,7 +43,7 @@ const MainTabScreen = () => (
       />
       <Tab.Screen
         name="Report"
-        component={ReportScreen}
+        component={DetailsStackScreen}
         options={{
           tabBarLabel: 'รายงาน',
           tabBarColor: '#51DCA8',
@@ -88,25 +87,7 @@ const HomeStackScreen = ({navigation}) => (
 </HomeStack.Navigator>
 );
 
-const ReportStackScreen = ({navigation}) => (
-  <ReportStack.Navigator screenOptions={{
-          headerStyle: {
-          backgroundColor: '#51DCA8',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-          fontWeight: 'bold'
-          }
-      }}>>
-          <ReportStack.Screen name="รายงาน" component={ReportScreen} options={{
-          headerLeft: () => (
-              <Icon.Button name="ios-menu" size={25} backgroundColor="#51DCA8" onPress={() => navigation.openDrawer()}></Icon.Button>
-          )
-          }} />
-  </ReportStack.Navigator>
-  );
-
-const MapStackScreen = ({navigation}) => (
+const DetailsStackScreen = ({navigation}) => (
 <DetailsStack.Navigator screenOptions={{
         headerStyle: {
         backgroundColor: '#51DCA8',
@@ -116,7 +97,7 @@ const MapStackScreen = ({navigation}) => (
         fontWeight: 'bold'
         }
     }}>
-        <DetailsStack.Screen name="แผนที่" component={MapScreen} options={{
+        <DetailsStack.Screen name="รายงาน" component={ReportScreen} options={{
         headerLeft: () => (
             <Icon.Button name="ios-menu" size={25} backgroundColor="#51DCA8" onPress={() => navigation.openDrawer()}></Icon.Button>
         )

@@ -4,11 +4,13 @@ import Geolocation from 'react-native-geolocation-service';
 import MapView, { PROVIDER_GOOGLE, Marker, Polyline } from 'react-native-maps';
 import { mapStyle } from '../constants/mapStyle';
 import firebase from 'react-native-firebase';
-import { GeoCollectionReference, GeoFirestore, GeoQuery, GeoQuerySnapshot } from 'geofirestore';
+import geofire from 'geofire'
+import Geocoder from 'react-native-geocoding';
 const geoDat = {
   lat: 0.00,
   lng: 0.00
 };
+
 export default class Map extends React.Component {
   constructor(props) {
     super(props);
@@ -75,6 +77,13 @@ export default class Map extends React.Component {
         geoDat.lat = position.coords.latitude
         geoDat.lng = position.coords.longitude
         console.log(geoDat);
+        /*Geocoder.init("");
+        Geocoder.from(geoDat.lat,geoDat.lng)
+		    .then(json => {
+        		var addressComponent = json.results[0].address_components[0];
+			  console.log(addressComponent);
+		    })
+		    .catch(error => console.warn(error))*/
         firebase.firestore()
           .collection('Tracking')
           .add({
@@ -84,12 +93,11 @@ export default class Map extends React.Component {
           })
         firebase.database().ref(`/users/001`)
           .set({
-            result: {
-              name:'Somchai',
+            location: {
               lat: geoDat.lat,
               long:geoDat.lng, 
             }
-          })
+          })    
       },
       error => {
         console.log(error);
@@ -102,9 +110,60 @@ export default class Map extends React.Component {
         distanceFilter: 0,
       },
     );
+  }
+  queryDetects() {
+    let radius = 0.1 // 100m
+    let currentLocation = [
+      geoDat.lat,
+      geoDat.lng,
+    ]
 
+    let detectFound = []
 
+    let geoQuery = this.geoFire.query({center: currentLocation, radius})
 
+    geoQuery.on('key_entered', (key, location, distance) => {
+      if (/detect:/.test(key)) {
+        detectFound[key] = {key, location, distance}
+      }
+    })
+
+    let timeout = null
+
+    geoQuery.on('ready', _ => {
+      // update circle
+      this.state.nearestDetectRadius.push(geoQuery.radius())
+      this.setState({nearestDetectRadius: this.state.nearestDetectRadius})
+
+      // clear previous timeout
+      clearTimeout(timeout)
+
+      timeout = setTimeout(_ => {
+        if (Object.keys(detectFound).length === 0) {
+          radius += 0.1
+          geoQuery.updateCriteria({radius})
+        } else {
+          clearTimeout(timeout)
+          // find nearest
+          let minDistance = -1, nearestDetect = null
+
+          Object.keys(detectFound).forEach(key => {
+            const detect = detectFound[key]
+
+            if (detect.distance < minDistance || minDistance === -1)
+              minDistance = detect.distance, nearestDetect = detect
+          })
+
+          const nearestDetectKey = nearestDetect.key.split(':')[1]
+
+          this.state.detect.forEach(detect => {
+            if (detect.id === nearestDetectKey) {
+              this.setState({nearestDetect:detect})
+            }
+          })
+        }
+      }, 2000)
+    })
   }
   render() {
     return (
@@ -136,6 +195,7 @@ export default class Map extends React.Component {
             ]}
             strokeWidth={3}
           />
+          {this.queryDetects()}
         </MapView>
       </View>
     );

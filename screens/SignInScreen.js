@@ -18,6 +18,8 @@ import { useTheme } from 'react-native-paper';
 
 import { AuthContext } from '../components/context';
 
+import auth from '@react-native-firebase/auth';
+
 import Users from '../model/users';
 
 const SignInScreen = ({navigation}) => {
