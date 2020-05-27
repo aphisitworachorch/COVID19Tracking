@@ -23,7 +23,7 @@ export default class Signup extends Component {
 
   registerUser = () => {
     if(this.state.email === '' && this.state.password === '') {
-      Alert.alert('Enter details to signup!')
+      Alert.alert('ใส่ข้อมูลเพื่อลงทะเบียน!')
     } else {
       this.setState({
         isLoading: true,
@@ -51,7 +51,7 @@ export default class Signup extends Component {
     if(this.state.isLoading){
       return(
         <View style={styles.preloader}>
-          <ActivityIndicator size="large" color="#9E9E9E"/>
+          <ActivityIndicator size="large" color="#51DCA8"/>
         </View>
       )
     }    
@@ -59,19 +59,19 @@ export default class Signup extends Component {
       <View style={styles.container}>  
         <TextInput
           style={styles.inputStyle}
-          placeholder="Name"
+          placeholder="ชื่อ"
           value={this.state.displayName}
           onChangeText={(val) => this.updateInputVal(val, 'displayName')}
         />      
         <TextInput
           style={styles.inputStyle}
-          placeholder="Email"
+          placeholder="อีเมล"
           value={this.state.email}
           onChangeText={(val) => this.updateInputVal(val, 'email')}
         />
         <TextInput
           style={styles.inputStyle}
-          placeholder="Password"
+          placeholder="รหัสผ่าน"
           value={this.state.password}
           onChangeText={(val) => this.updateInputVal(val, 'password')}
           maxLength={15}
@@ -79,14 +79,14 @@ export default class Signup extends Component {
         />   
         <Button
           color="#3740FE"
-          title="Signup"
+          title="สมัครเข้าใช้ระบบ"
           onPress={() => this.registerUser()}
         />
 
         <Text 
           style={styles.loginText}
           onPress={() => this.props.navigation.navigate('Login')}>
-          Already Registered? Click here to login
+          หากสมัครไว้แล้ว กดตรงนี้เพื่อเข้าสู่ระบบ
         </Text>                          
       </View>
     );

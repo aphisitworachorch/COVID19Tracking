@@ -8,12 +8,12 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import Login from './components/login';
 import Signup from './components/signup';
 import HomeScreen from './components/HomeScreen';
-
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 function MyStack() {
   return (
@@ -22,7 +22,7 @@ function MyStack() {
       screenOptions={{
         headerTitleAlign: 'center',
         headerStyle: {
-          backgroundColor: '#3740FE',
+          backgroundColor: '#51DCA8',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -30,23 +30,23 @@ function MyStack() {
         },
       }}>
       <Stack.Screen 
-        name="Login" 
+        name="เข้าสู่ระบบ" 
         component={Login} 
         options={
-          {title: 'Login'},
+          {title: 'เข้าสู่ระบบ'},
           {headerLeft: null} 
         }
       />
       <Stack.Screen 
-        name="Signup" 
+        name="ลงทะเบียน" 
         component={Signup} 
-        options={{ title: 'Signup' }}
+        options={{ title: 'ลงทะเบียน' }}
       />       
       <Stack.Screen 
        name="HomeScreen" 
        component={HomeScreen} 
        options={
-         { title: 'HomeScreen' } 
+         { title: 'หน้าหลัก',headerLeft: null } 
        }
       />
     </Stack.Navigator>
@@ -57,6 +57,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <MyStack />
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }

@@ -12,7 +12,8 @@ export default class Login extends Component {
       password: '',
       isLoading: false
     }
-  }
+  } 
+  
 
   updateInputVal = (val, prop) => {
     const state = this.state;
@@ -22,7 +23,7 @@ export default class Login extends Component {
 
   userLogin = () => {
     if(this.state.email === '' && this.state.password === '') {
-      Alert.alert('Enter details to sign in!')
+      Alert.alert('ใส่ข้อมูลอีกครั้ง')
     } else {
       this.setState({
         isLoading: true,
@@ -40,14 +41,17 @@ export default class Login extends Component {
         this.props.navigation.navigate('HomeScreen')
       })
       .catch(error => this.setState({ errorMessage: error.message }))
+      
     }
+    
   }
+ 
 
   render() {
     if(this.state.isLoading){
       return(
         <View style={styles.preloader}>
-          <ActivityIndicator size="large" color="#9E9E9E"/>
+          <ActivityIndicator size="large" color="#51DCA8"/>
         </View>
       )
     }    
@@ -55,28 +59,28 @@ export default class Login extends Component {
       <View style={styles.container}>  
         <TextInput
           style={styles.inputStyle}
-          placeholder="Email"
+          placeholder="อีเมล"
           value={this.state.email}
           onChangeText={(val) => this.updateInputVal(val, 'email')}
         />
         <TextInput
           style={styles.inputStyle}
-          placeholder="Password"
+          placeholder="รหัสผ่าน"
           value={this.state.password}
           onChangeText={(val) => this.updateInputVal(val, 'password')}
           maxLength={15}
           secureTextEntry={true}
         />   
         <Button
-          color="#3740FE"
-          title="Signin"
+          color="#51DCA8"
+          title="เข้าสู่ระบบ"
           onPress={() => this.userLogin()}
         />   
 
         <Text 
           style={styles.loginText}
           onPress={() => this.props.navigation.navigate('Signup')}>
-          Don't have account? Click here to signup
+          ยังไม่ได้สมัครมาก่อน? กดตรงนี้เพื่อลงทะเบียน
         </Text>                          
       </View>
     );
@@ -101,7 +105,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1
   },
   loginText: {
-    color: '#3740FE',
+    color: '#51DCA8',
     marginTop: 25,
     textAlign: 'center'
   },

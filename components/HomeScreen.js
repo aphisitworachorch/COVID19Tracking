@@ -1,36 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View, Text, Button } from 'react-native';
 import auth from '@react-native-firebase/auth';
 
-function App() {
-  // Set an initializing state whilst Firebase connects
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
-
-  // Handle user state changes
-  function onAuthStateChanged(user) {
-    setUser(user);
-    if (initializing) setInitializing(false);
+export default class HomeScreen extends Component {
+  constructor() {
+    super();
+    this.state = { 
+      uid: ''
+    }
   }
 
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
-  }, []);
+  signOut = () => {
+    auth().signOut().then(() => {
+      this.props.navigation.navigate('Login')
+    })
+    .catch(error => this.setState({ errorMessage: error.message }))
+  }  
 
-  if (initializing) return null;
+  render() {
+    this.state = { 
+      displayName: auth().currentUser.displayName,
+      uid: auth().currentUser.uid
+    }   
 
-  if (!user) {
+    
     return (
-      <View>
-        <Text>Login</Text>
+      <View style={styles.container}>
+        <Text style = {styles.textStyle}>
+          ยินดีต้อนรับสู่หน้าหลัก, {this.state.displayName}
+        </Text>
+
+        <Button
+          color="#51DCA8"
+          title="ออกจากระบบ"
+          onPress={() => this.signOut()}
+        />
       </View>
+
     );
   }
-
-  return (
-    <View>
-      <Text>Welcome {user.email}</Text>
-    </View>
-  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    display: "flex",
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 35,
+    backgroundColor: '#fff'
+  },
+  textStyle: {
+    fontSize: 15,
+    marginBottom: 20
+  }
+});
